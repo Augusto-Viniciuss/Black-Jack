@@ -1,15 +1,17 @@
 import random as rd
 
-print("\t       Black Jack\n\n\t          Menu\n")
+print("\t          Black Jack\n\n\t             Menu\n")
 
-qtdDeJogadores = int(input("\t   Quantos jogadores: "))
+qtdDeJogadores = int(input("\t      Quantos jogadores: "))
 
 jogadores = []
 pontosJogadores = []
+rodadasGanhas = []
 
 for x in range(qtdDeJogadores):
     jogadores.append(input(f"\n\tQual o nome do jogador {x + 1}: "))
     pontosJogadores.append(0)
+    rodadasGanhas.append(0)
     
 baralho = [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13]
     
@@ -24,7 +26,7 @@ while True:
         
         while pontosJogadores[x] <= 21:
             
-            if baralho[y] == 10 or 1:
+            if baralho[y] == 10 or baralho[y] == 1:
                 if baralho[y] == 1:
                     print(f"\n ____\n|    |\n| Ás |\n|____|")
                 else:
@@ -48,16 +50,35 @@ while True:
             if maisUma != "sim":
                 break
             
-        print(f"O jogador {jogadores[x]} somou {pontosJogadores[x]}")
+        print(f"\nO jogador {jogadores[x]} somou {pontosJogadores[x]} pontos")
         
+        if pontosJogadores[x] > 21:
+            pontosJogadores[x] = 0
+
+    maiorValor = max(pontosJogadores)
+    jogadorComOValorMax = -1
+    jogadoresComOValorMax = 0
+   
+    for x in range(qtdDeJogadores):
+        if maiorValor == pontosJogadores[x]:
+            jogadorComOValorMax = x
+            jogadoresComOValorMax += 1
+            
+    if jogadoresComOValorMax > 1:
+        print("\nDois ou mais jogadores tiraram o mesmo numero que foi o ganhador então essa rodada empatou.")
+    else:
+        print(f"\nO ganhador da rodada foi o jogador {jogadores[jogadorComOValorMax]} que somou {pontosJogadores[jogadorComOValorMax]} pontos.")
+        
+    rodadasGanhas[jogadorComOValorMax] += 1
+
+    if input("\nQuer jogar mais uma rodada ? s ou n: ") == "n":
+        break
+    
+    for x in range(qtdDeJogadores):
         pontosJogadores[x] = 0
 
-        
-   
-        
-        
-    if input("Quer jogar mais uma rodada ? s ou n") == "n":
-        break
+for z in range(qtdDeJogadores):
+    print(f"\nO jogador {jogadores[z]} ganhou {rodadasGanhas[z]} rodada(s) nessa partida")
         
         
     
