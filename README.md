@@ -22,7 +22,7 @@ Após receber uma carta o jogador da vez tem a opção de digitar sim para receb
 
 <img src=https://github.com/Augusto-Viniciuss/Black-Jack/blob/main/Imgs/fim%20da%20rodada.png/>
 
-O jogador 2 (Rafael) pediu cartas até somar 20 pontos, como ele é o ultimo jogador ao parar de pedir cartas o programa vai informar o ganhador da rodada e perguntar se os jogadores querem jogar mais uma rodada.
+O jogador 2 (Rafael) pediu cartas até somar 20 pontos. como ele é o ultimo jogador, ao parar de pedir cartas o programa vai informar o ganhador da rodada e perguntar se os jogadores querem jogar mais uma rodada.
 Os jogadores decidiram que não querem mais jogar e encerram a partida.
 
 <img src=https://github.com/Augusto-Viniciuss/Black-Jack/blob/main/Imgs/fim%20da%20partida.png/>
