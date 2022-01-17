@@ -1,4 +1,4 @@
-import random as rd
+from random import shuffle
 
 print("\t          Black Jack\n\n\t             Menu\n")
 
@@ -20,7 +20,7 @@ while True:
         maisUma = "sim"
         y = 0
         
-        rd.shuffle(baralho)
+        shuffle(baralho)
         
         print(f"\nVez do jogador {jogadores[x]}")
         
@@ -79,6 +79,3 @@ while True:
 
 for z in range(qtdDeJogadores):
     print(f"\nO jogador {jogadores[z]} ganhou {rodadasGanhas[z]} rodada(s) nessa partida")
-        
-        
-    
