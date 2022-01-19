@@ -6,6 +6,8 @@ O jogo 21 feito com a linguagem de programação python, utilizando apenas o cmd
  
 ## Funcionamento
 
+O jogo funciona com dois ou mais jogadores competindo entre si, o computador apenas sorteia as cartas.
+
 A primeira tela que aparece ao executar o programa é a tela de informar quantos jogadores irão disputar a partida.
 
 <img src=https://github.com/Augusto-Viniciuss/Black-Jack/blob/main/Imgs/menu.png/>
