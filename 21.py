@@ -1,8 +1,11 @@
 from random import shuffle
 
-print("\t          Black Jack\n\n\t             Menu\n")
+print("\t\tBlack Jack\n")
 
-qtdDeJogadores = int(input("\t      Quantos jogadores: "))
+qtdDeJogadores = int(input("Quantos pessoas irão jogar(digite apenas números): "))
+
+while qtdDeJogadores < 2:
+    qtdDeJogadores = int(input("\nDesculpe fui feito para que dois ou mais jogadores competissem entre si.\nPoderia me informar novamente a quiantidade de jogadores: "))
 
 jogadores = []
 pontosJogadores = []
@@ -17,7 +20,6 @@ baralho = [1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5,6,7,8,9,10,11,12,13,1,2,3,4,5
     
 while True:
     for x in range(qtdDeJogadores): 
-        maisUma = "sim"
         y = 0
         
         shuffle(baralho)
@@ -45,8 +47,12 @@ while True:
             
             y += 1 
             
-            maisUma = input("\nQuer mais uma carta ? Digite sim ou não: ")
+            if pontosJogadores[x] <= 21:
+                maisUma = input("\nQuer mais uma carta ? Digite sim ou não: ")
             
+            while maisUma != "sim" and maisUma != "não":
+                maisUma = input("Não entendi, poderia digitar novamente: ")
+                
             if maisUma != "sim":
                 break
             
@@ -65,13 +71,18 @@ while True:
             jogadoresComOValorMax += 1
             
     if jogadoresComOValorMax > 1:
-        print("\nDois ou mais jogadores tiraram o mesmo numero que foi o ganhador então essa rodada empatou.")
+        print("\nEssa rodada empatou.")
     else:
         print(f"\nO ganhador da rodada foi o jogador {jogadores[jogadorComOValorMax]} que somou {pontosJogadores[jogadorComOValorMax]} pontos.")
         
     rodadasGanhas[jogadorComOValorMax] += 1
+    
+    outraRodada = input("\nQuer jogar mais uma rodada ? sim ou não: ")
+    
+    while outraRodada != "sim" and outraRodada != "não":
+        outraRodada = input("Não entendi, poderia digitar novamente: ")
 
-    if input("\nQuer jogar mais uma rodada ? s ou n: ") == "n":
+    if outraRodada == "não":
         break
     
     for x in range(qtdDeJogadores):
